@@ -1,73 +1,182 @@
-# Welcome to your Lovable project
+# ⚡ Smart-Stock Model Lab  
+_Time-Series Intelligence Model Deployment & Showcase_
 
-## Project info
+---
 
-**URL**: https://lovable.dev/projects/aeb235da-9894-41b2-a8c1-552600af0af8
+## 📌 Overview  
+**Smart-Stock Model Lab** is a lightweight, demo-focused web application designed to _showcase deployed time-series forecasting and inventory risk models_ to **non-technical business users**.
 
-## How can I edit this code?
+It **does not replace enterprise inventory systems**.  
+Instead, it provides a **clean, intuitive interface** to demonstrate how our models predict **future product demand**, detect **inventory risks**, and identify **volatility spikes** using sample retail data.
 
-There are several ways of editing your application.
+---
 
-**Use Lovable**
+## 🎯 Key Use Case  
+✔ Showcase ML models in a business-friendly format  
+✔ Enable interaction with live or sample data  
+✔ Visualize model outputs with clear, interpretable charts  
+✔ Explain model-generated recommendations in simple terms  
+✔ Build stakeholder trust before full operational deployment
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/aeb235da-9894-41b2-a8c1-552600af0af8) and start prompting.
+---
 
-Changes made via Lovable will be committed automatically to this repo.
+## 🛠 Tech Stack  
 
-**Use your preferred IDE**
+| Layer              | Technologies |
+|-------------------|--------------|
+| Frontend UI       | React / Next.js |
+| Backend API       | Node.js |
+| Model Serving     | Python (FastAPI or Flask) |
+| Model Frameworks  | `statsmodels`, `scikit-learn`, `arch` |
+| Deployment        | Vercel / Docker |
+| Auth (optional)   | NextAuth.js + JWT |
+| Visualization     | Recharts / Chart.js |
+| Styling           | Tailwind CSS |
+| Theme             | **Black + Orange (Amazon-style), White text** |
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+---
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+## 🎨 UI Theme (Amazon-Inspired)
 
-Follow these steps:
+| Element        | Color |
+|----------------|-------|
+| Background     | `#0D0D0D` (deep black) |
+| Primary Accent | `#FF9900` (warm orange) |
+| Secondary      | `#FFB84D` (amber) |
+| Text           | `#FFFFFF` (white) |
+| Card Panels    | Dark gray with soft orange hover glow |
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+---
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+## 🚀 Features
 
-# Step 3: Install the necessary dependencies.
-npm i
+### 🔹 1. **Demand Forecasting**
+Predicts 7-day product demand using historical trends, seasonality, pricing, and promotions.  
+Displays:  
+- Forecast chart (past vs future)  
+- Confidence bands  
+- Plain-language summary (e.g., “Expected demand +15% due to weekend pattern.”)
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+---
+
+### 🔹 2. **Inventory Risk Assessment**
+Identifies stockout / overstock risk based on forecast vs current stock.  
+Displays:  
+- Risk gauge (Low / Medium / High)  
+- 7-day risk breakdown  
+- Suggested business action  
+  _“Order +120 units to maintain 95% service level.”_
+
+---
+
+### 🔹 3. **Volatility & Spike Detection**
+Analyzes demand fluctuation periods (holidays, promotions, weather events).  
+Displays:  
+- Volatility timeline  
+- Highlighted risk windows  
+- Short insights (cause-based)
+
+---
+
+## 🏗 App Structure (Demo-Only)
+
+smart-stock-model-lab/
+│── README.md
+│── /frontend (Next.js UI)
+│── /backend (Node.js / FastAPI endpoints)
+│── /models
+│    ├── forecast.py
+│    ├── inventory_risk.py
+│    └── volatility.py
+│── /sample_data
+│── /api
+│── package.json
+└── docker-compose.yml (optional)
+
+````
+
+---
+
+## 🔍 Workflow
+
+```mermaid
+flowchart TD
+    A[User selects product/store] --> B[Run Model]
+    B --> C[Backend model compute]
+    C --> D[Chart visualisation]
+    D --> E[Plain-language summary]
+    E --> F[User interprets insights]
+````
+
+---
+
+## 📋 Recommended User Flow
+
+1. Open dashboard → click **“Try the Models”**
+2. Select sample data
+3. Choose model (Forecast / Risk / Volatility)
+4. Click **Run**
+5. Observe charts & summary
+6. Discuss with stakeholders
+
+*No technical knowledge required*
+
+---
+
+## 🧪 Sample Insights Display
+
+```text
+📊 Demand Forecast (Milk 1L – Store 12)
+Demand expected to rise by +15% next week.
+Reason: weekend pattern + active promotion.
+Confidence: High
+
+⚠ Inventory Risk: HIGH
+Recommend ordering +120 units today.
 ```
 
-**Edit a file directly in GitHub**
+---
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## 🔒 Security (Optional Demo Mode)
 
-**Use GitHub Codespaces**
+* Option to restrict access via organization domain (`.edu`, `.corp`)
+* JWT-based authentication if required
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+---
 
-## What technologies are used for this project?
+## 📦 Deployment
 
-This project is built with:
+```bash
+# Development
+npm install
+npm run dev        # frontend
+uvicorn backend.main:app --reload  # backend
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+# Production via Vercel (frontend only)
+vercel deploy
 
-## How can I deploy this project?
+# Or using Docker
+docker-compose up --build
+```
 
-Simply open [Lovable](https://lovable.dev/projects/aeb235da-9894-41b2-a8c1-552600af0af8) and click on Share -> Publish.
+---
 
-## Can I connect a custom domain to my Lovable project?
+## ⚠ Intended Audience
 
-Yes, you can!
+✔ Retail operations team
+✔ Supply chain planners
+✔ Pricing & promotions team
+✔ Risk managers
+✔ Business leadership (demo stage)
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+*Not intended for IT admins or model developers.*
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+---
+
+## 📈 Future Enhancements
+
+* Live database connection
+* Scenario simulation (“What-if Engine”)
+* Feedback mechanism for model learning
+* Robust authentication & multi-user roles
+
